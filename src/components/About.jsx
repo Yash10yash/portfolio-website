@@ -51,7 +51,7 @@ const About = () => {
             <div className="glass-strong rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 hover-lift relative overflow-hidden group">
               <div className="aspect-square rounded-xl sm:rounded-2xl overflow-hidden relative">
                 <img
-                  src="/portfolio-website/profilephoto.jpeg"
+                  src={`${import.meta.env.BASE_URL}profilephoto.jpeg`}
                   alt="Yash Gupta"
                   className="w-full h-full object-cover rounded-xl sm:rounded-2xl"
                   loading="lazy"
