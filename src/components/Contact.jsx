@@ -1,7 +1,9 @@
+
 import { motion, useReducedMotion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { FaPhone, FaEnvelope, FaLinkedin, FaGithub, FaCheckCircle } from 'react-icons/fa'
+import emailjs from 'emailjs-com'
 
 const Contact = () => {
   const ref = useRef(null)
@@ -44,13 +46,28 @@ const Contact = () => {
     e.preventDefault()
     if (validateForm()) {
       setIsSubmitting(true)
-      // Simulate form submission
-      setTimeout(() => {
-        setIsSubmitting(false)
-        setIsSuccess(true)
-        setFormData({ name: '', email: '', message: '' })
-        setTimeout(() => setIsSuccess(false), 3000)
-      }, 1000)
+      // Replace these with your EmailJS service ID, template ID, and user ID
+      const serviceID = 'service_xc6lvjj';
+      const templateID = 'template_y07xjgc';
+      const userID = 'SSNx94XqSCBrQvD8P';
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        message: formData.message,
+        date: new Date().toLocaleString(),
+      };
+      emailjs.send(serviceID, templateID, templateParams, userID)
+        .then(() => {
+          setIsSubmitting(false);
+          setIsSuccess(true);
+          setFormData({ name: '', email: '', message: '' });
+          setTimeout(() => setIsSuccess(false), 3000);
+        })
+        .catch((error) => {
+          setIsSubmitting(false);
+          setErrors({ submit: 'Failed to send message. Please try again.' });
+          console.error('EmailJS error:', error);
+        });
     }
   }
 

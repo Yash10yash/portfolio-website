@@ -62,20 +62,20 @@ const Experience = () => {
 
               </motion.h3>
 
-              <motion.p
+              <motion.div
                 className="text-lg sm:text-xl text-gray-700 dark:text-gray-300 mb-2"
                 initial={{ opacity: 0, x: -20 }}
                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }}
                 transition={{ delay: shouldReduceMotion ? 0 : 0.3 }}
               >
                 <ul className="list-disc pl-5 space-y-2">
-             <li>Developed scalable full-stack web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js).</li>
-             <li>Designed and implemented secure RESTful APIs for real-time data handling.</li>
-             <li>Optimized MongoDB queries to enhance application performance.</li>
-             <li>Built responsive and dynamic UI components using React.js.</li>
-             <li>Collaborated in Agile sprints to deliver client-focused solutions on time.</li>
-             </ul>
-              </motion.p>
+                  <li>Developed scalable full-stack web applications using the MERN stack (MongoDB, Express.js, React.js, Node.js).</li>
+                  <li>Designed and implemented secure RESTful APIs for real-time data handling.</li>
+                  <li>Optimized MongoDB queries to enhance application performance.</li>
+                  <li>Built responsive and dynamic UI components using React.js.</li>
+                  <li>Collaborated in Agile sprints to deliver client-focused solutions on time.</li>
+                </ul>
+              </motion.div>
 
               <motion.div
                 className="flex flex-wrap gap-3 sm:gap-4 mt-4 sm:mt-6"
